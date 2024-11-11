@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>URL Shortner</h2>
+    <form action="http://localhost:8071/url" method="post">
+        <label >Enter URL:</label>
+        <input type="text" name="url" required placeholder="Type URL">
+        <button type="submit">Shorten URL</button>
+    </form>
+    <% if (locals.id) { %>
+      <h3>Your shortened URL is: http://localhost:8071/url/<%= locals.id %></h3>
+      <p>Click on this <a href="http://localhost:8071/url/<%= locals.id %>">Link</a></p>
+    <% } %>
+    <h3>Your visited Urls</h3>
+    <table>
+        <tr>
+            <th>Slot No.</th>
+            <th>Short ID</th>
+            <th>Original URL</th>
+        </tr>
+    <% if (locals.urls) { %>
+        <% urls.forEach(element => { %>
+            <tr>
+                <td><%= element.slotnot %></td>
+                <td><%= element.shortID %></td>
+                <td><%= element.Urlentered %></td>
+            </tr>
+        <% }) %>
+    <% } %>
+</table>
+</body>
+
+</html>

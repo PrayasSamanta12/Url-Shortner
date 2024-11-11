@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login Page</h1>
+    <form action="/users/login" method="post">
+        <dl>
+            <dd><label for="email">Enter the registered eamil</label></dd>
+            <dd><input type="email" name="email" required></dd>
+        </dl>
+        <dl>
+            <dd><label for="password">Enter the password</label></dd>
+            <dd><input type="password" name="password" required></dd>
+        </dl>
+        <button type="submit">Submit</button>
+    </form>
+    <% if (locals.newuser) { %>
+        <h4 class="red">Please Sign up first</h4>
+    <% } %>
+    <% if (locals.error) { %>
+        <h4 class="red">Invalid Username or password</h4>
+    <% } %>
+</body>
+</html>

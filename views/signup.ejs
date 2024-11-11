@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="./signup.css">
+    <style>
+        .btn {
+            border: 2px solid;
+            background-color: rgb(100, 100, 172);
+            color: #ffffff;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sign up Page</h1>
+    <!-- Display error message if available -->
+    <% if (locals.errorMessage) { %>
+        <p style="color: red;">
+            <%= errorMessage %>
+        </p>
+        <a href="http://localhost:8071/login" class="btn">Login</a>
+        <% } %>
+            <form action="/users" method="post">
+                <dl>
+                    <dd><label for="name">Enter the username</label></dd>
+                    <dd><input type="text" name="name" required></dd>
+                </dl>
+                <dl>
+                    <dd><label for="email">Enter the email</label></dd>
+                    <dd><input type="email" name="email" required></dd>
+                </dl>
+                <dl>
+                    <dd><label for="password">Enter the password</label></dd>
+                    <dd><input type="password" name="password" required
+                            placeholder="Password must contain 8 characters"></dd>
+                </dl>
+                <button type="submit">Submit</button>
+            </form>
+</body>
+
+</html>
